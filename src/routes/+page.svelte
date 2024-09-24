@@ -1,59 +1,22 @@
-<script>
-	import Counter from './Counter.svelte';
-	import welcome from '$lib/images/svelte-welcome.webp';
-	import welcome_fallback from '$lib/images/svelte-welcome.png';
+<script lang="ts">
+
+   import { ratio as hwRatio } from '$lib/state/height-waist.svelte.js';
+   import { ratio } from '$lib/state/trigs-hdl.svelte.js';
+   //imp
 </script>
+		
+<h1 class="text-2xl font-bold mb-4">Welcome to Health Metrics</h1>
 
-<svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
-</svelte:head>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="bg-white p-4 rounded shadow">
+        <h2 class="text-xl font-semibold mb-2">Trigs/HDL Ratio ({$ratio})</h2>
+        <p>Calculate and analyze your Triglycerides to HDL ratio.</p>
+        <a href="/trigs-hdl" class="text-blue-600 hover:underline">Go to Trigs/HDL Calculator</a>
+    </div>
 
-<section>
-	<h1>
-		<span class="welcome">
-			<picture>
-				<source srcset={welcome} type="image/webp" />
-				<img src={welcome_fallback} alt="Welcome" />
-			</picture>
-		</span>
-
-		to your new<br />SvelteKit app
-	</h1>
-
-	<h2>
-		try editing <strong>src/routes/+page.svelte</strong>
-	</h2>
-
-	<Counter />
-</section>
-
-<style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 0.6;
-	}
-
-	h1 {
-		width: 100%;
-	}
-
-	.welcome {
-		display: block;
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
-
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
-	}
-</style>
+    <div class="bg-white p-4 rounded shadow">
+        <h2 class="text-xl font-semibold mb-2">Height/Waist Ratio ({$hwRatio})</h2>
+        <p>Measure your height to waist ratio and get health insights.</p>
+        <a href="/height-waist" class="text-blue-600 hover:underline">Go to Height/Waist Calculator</a>
+    </div>
+</div>
